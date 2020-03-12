@@ -1,7 +1,10 @@
 {
   "name": "dockerom",
   "version": "0.0.1",
-  "author": "badwolf09950@163.com",
+  "author": {
+    "name":"badwolf",
+    "email": "badwolf09950@163.com"
+  },
   "description": "manager your docker images and containers in local machine",
   "license": "MIT",
   "main": "./dist/electron/main.js",
@@ -43,12 +46,13 @@
       ]
     },
     "mac": {
-      "icon": "build/icons/icon.icns"
+      "icon": "build/icon.icns"
     },
     "win": {
-      "icon": "build/icons/icon.ico"
+      "icon": "build/icon.ico"
     },
     "linux": {
+      "target": "pacman",
       "icon": "build/icons"
     }
   },

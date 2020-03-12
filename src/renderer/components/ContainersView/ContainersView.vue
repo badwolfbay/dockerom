@@ -21,7 +21,9 @@
     <div v-if="hasFoundContainers">
       <Card v-for="container in containers" :key="container.Id" class="container-card">
         <p slot="title" class="container-card-title">
-          {{container.Names[0]}}
+          <a href="#"  @click="inspectContainer(container.Id)">
+            {{container.Names[0]}}
+          </a>
           <Tag class="container-state-tag" :color="stateToColor[container.State]">
             {{container.State}}
           </Tag>
@@ -30,9 +32,10 @@
           Image: {{getImageName(container.Image)}}
           <Tag v-if="getTag(container.Image)">{{getTag(container.Image)}}</Tag>
         </p>
-        <p>Size: rw {{formatBytes(container.SizeRw)}}, rootfs {{formatBytes(container.SizeRootFs)}}</p>
+        <p>Size: rootfs {{formatBytes(container.SizeRootFs)}}</p>
+        <p>IPAddress: <Tag color="cyan">{{container.NetworkSettings.Networks.bridge.IPAddress}}</Tag><p>
         <p>Status: {{container.Status}}</p>
-        <Button type="primary" @click="inspectContainer(container.Id)">Inspect</Button>
+        <!-- <Button type="primary" @click="inspectContainer(container.Id)">Inspect</Button> -->
         <container-control-panel class="control-panel"
             :container-id="container.Id" :container-name="container.Names[0]"
             @reload="loadContainers">
@@ -122,6 +125,7 @@
         }
 
         const updateContainers = containers => {
+          console.log(containers)
           this.containers = containers
           this.error = {}
         }

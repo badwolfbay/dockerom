@@ -1,19 +1,8 @@
 <template>
   <div>
     <Button type="success" @click="startContainer">Start</Button>
-    <Button type="error" @click="stopContainer">Stop</Button>
-    <div v-if="fullPanel" class="additional-buttons">
-      <Button type="warning" @click="pauseContainer">Pause</Button>
-      <Button type="info" @click="unpauseContainer">Unpause</Button>
-      <Button type="warning" @click="restartContainer">Restart</Button>
-      <Button type="error" @click="killContainer">Kill</Button>
-      <Button type="success" @click="inspectContainer">Refresh</Button>
-      <Button type="info" @click="getContainerLogs">Logs</Button>
-      <Button type="warning" @click="containerRenameModal = true">Rename</Button>
-      <Modal v-model="containerRenameModal" title="Rename Container" @on-ok="renameContainer">
-        <Input v-model="containerNewName" placeholder="New Name"></Input>
-      </Modal>
-      <Button type="error" @click="removeContainerModal = true">Remove</Button>
+    <Button type="warning" @click="stopContainer">Stop</Button>
+    <Button type="error" @click="removeContainerModal = true">Remove</Button>
       <Modal v-model="removeContainerModal" title="Do you want to remove this container?"
           @on-ok="removeContainer">
         Remove the volumes associated with the container:
@@ -33,6 +22,17 @@
           <span slot="open">True</span>
           <span slot="close">False</span>
         </i-switch>
+      </Modal>
+    <div v-if="fullPanel" class="additional-buttons">
+      <Button type="warning" @click="pauseContainer">Pause</Button>
+      <Button type="info" @click="unpauseContainer">Unpause</Button>
+      <Button type="warning" @click="restartContainer">Restart</Button>
+      <Button type="error" @click="killContainer">Kill</Button>
+      <Button type="success" @click="inspectContainer">Refresh</Button>
+      <Button type="info" @click="getContainerLogs">Logs</Button>
+      <Button type="warning" @click="containerRenameModal = true">Rename</Button>
+      <Modal v-model="containerRenameModal" title="Rename Container" @on-ok="renameContainer">
+        <Input v-model="containerNewName" placeholder="New Name"/>
       </Modal>
       <Button type="success" @click="psArgsModal = true">Top</Button>
       <Modal v-model="psArgsModal" title="ps arguments" @on-ok="listTopProcesses">

@@ -125,7 +125,6 @@
         }
 
         const updateContainers = containers => {
-          console.log(containers)
           this.containers = containers
           this.error = {}
         }

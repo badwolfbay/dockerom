@@ -1,11 +1,11 @@
 <template>
   <div class="login">
     <div v-if="token">
-      <Button type="text" size="small" icon="person">{{credentials.username}}</Button>
-      <Button type="text" @click="logout" icon="log-out" size="small">Logout</Button>
+      <Button type="text" size="small" icon="md-person">{{credentials.username}}</Button>
+      <Button type="text" @click="logout" icon="md-log-out" size="small">Logout</Button>
     </div>
     <div v-else>
-      <Button class="login-button" type="text" icon="person" size="small" @click="loginModal=true">Login</Button>
+      <Button class="login-button" type="text" icon="md-person" size="small" @click="loginModal=true">Login</Button>
     </div>
     <Modal class="login-modal" v-model="loginModal" title="Login to Docker Hub" @on-ok="login">
       <Form :model="credentials" inline>
@@ -16,7 +16,7 @@
         </Form-item>
         <Form-item prop="password">
           <Input type="password" v-model="credentials.password" placeholder="Password">
-            <Icon type="ios-locked-outline" slot="prepend"></Icon>
+            <Icon type="ios-lock-outline" slot="prepend"></Icon>
           </Input>
         </Form-item>
       </Form>

@@ -1,9 +1,9 @@
 <template>
   <div class="status-bar">
     <Button class="status-item" type="text" icon="chevron-up" size="small"></Button>
-    <Button class="status-item" type="text" icon="refresh" size="small" @click="refresh"></Button>
+    <Button class="status-item" type="text" icon="md-refresh" size="small" @click="refresh"></Button>
     <Poptip class="status-item" trigger="hover" placement="top-end">
-      <Button type="text" size="small" icon="clipboard"></Button>
+      <Button type="text" size="small" icon="md-clipboard"></Button>
       <div slot="content">
         <div v-for="event in events" >
           <Tag v-if="event.time">{{timeFromEpic(event.time)}}</Tag>
@@ -16,13 +16,13 @@
     </Poptip>
     <login-panel class="status-item"></login-panel>
     <Tag class="status-item" color="blue">{{info.Images}}</Tag>
-    <Button class="status-item" type="text" size="small" icon="beer">
+    <Button class="status-item" type="text" size="small" icon="md-beer">
       images
     </Button>
     <Tag class="status-item" color="yellow">{{info.ContainersPaused}}</Tag>
     <Tag class="status-item" color="red">{{info.ContainersStopped}}</Tag>
     <Tag class="status-item" color="green">{{info.ContainersRunning}}</Tag>
-    <Button class="status-item" type="text" size="small" icon="cube">
+    <Button class="status-item" type="text" size="small" icon="md-cube">
       containers
     </Button>
   </div>

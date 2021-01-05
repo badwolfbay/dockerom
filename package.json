@@ -57,7 +57,7 @@
     }
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "dockerode": "^3.1.0",
     "iview": "^3.5.4",
     "lodash": "^4.17.15",
